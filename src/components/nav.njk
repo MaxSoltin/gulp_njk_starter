@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html">{{ title | upper }}</a>
+			<button type="button" class="navbar-toggle btn btn-default collapsed " data-toggle="collapse" data-target="#nav-menu">
+				<i class="glyphicon glyphicon-menu-hamburger"></i>
+			</button>
+		</div>
+		<div id="nav-menu" class="navbar-collapse collapse">
+			<ul id="" class="nav navbar-nav navbar-right">
+				<li {% if navActiveItem == 0 %}class="active"{% endif %}>
+					<a href="index.html">Главная</a>
+				</li>
+				<li {% if navActiveItem == 1 %}class="active"{% endif %}>
+					<a href="feedback.html">Обратная связь</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
