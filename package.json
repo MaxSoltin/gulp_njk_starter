@@ -46,6 +46,7 @@
     "sass": "^1.58.3",
     "vinyl-ftp": "^0.6.1",
     "webpack": "^5.76.0",
+		"gulp-prettier": "^4.0.0",
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {

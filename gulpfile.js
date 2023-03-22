@@ -12,6 +12,7 @@ import { scripts, copyCommon } from './gulp/tasks/scripts.js'
 import { images, svgo } from './gulp/tasks/images.js'
 import { fonts } from './gulp/tasks/fonts.js'
 import { zipy } from './gulp/tasks/zip.js'
+import { reload } from './gulp/tasks/reload.js'
 
 global.app = {
 	isOpen: process.argv.includes('--open'),
@@ -25,7 +26,7 @@ global.app = {
 function watch() {
 	gulp.watch(path.watch.scss, gulp.series(clean.css, scss))
 	gulp.watch(path.watch.js, gulp.series(clean.js, scripts, copyCommon))
-	gulp.watch(path.watch.files, gulp.series(clean.html, nunjucks))
+	gulp.watch(path.watch.files, gulp.series(clean.html, nunjucks, reload))
 	//gulp.watch(path.watch.images, images, svgo)
 }
 

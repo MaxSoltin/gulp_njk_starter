@@ -2,6 +2,7 @@ import njkRender from 'gulp-nunjucks-render'
 import versionNumber from 'gulp-version-number'
 import data from 'gulp-data'
 import fs from 'fs'
+import prettier from 'gulp-prettier'
 
 export const nunjucks = () => {
 	return app.gulp.src(app.path.src.njk)
@@ -14,7 +15,7 @@ export const nunjucks = () => {
 			})
 		)
 		.pipe(app.plugins.replace(/@img\//g, 'images/'))
-		.pipe(app.plugins.if(
+		/* .pipe(app.plugins.if(
 			app.isBuild, versionNumber({
 				'value' : '%TS%',
 				'append': {
@@ -24,7 +25,13 @@ export const nunjucks = () => {
 				},
 				'output' : {'file': 'gulp/version.json'}
 			})
-		))
+		)) */
+		.pipe(prettier({
+			useTabs: true,
+			tabWidth: 1,
+			bracketSameLine: true,
+			printWidth: 1000
+		 }))
 		.pipe(app.gulp.dest(app.path.build.dir))
-		.pipe(app.plugins.browserSync.stream())
+		//.pipe(app.plugins.browserSync.stream())
 }
